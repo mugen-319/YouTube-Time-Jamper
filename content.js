@@ -1,20 +1,29 @@
 (function () {
+    console.log("[YTJ] Start");
+
     // すでにパネルが存在すれば二重表示はしない
     if (document.getElementById("ytj-panel")) {
+        console.log("[YTJ] すでにUIが存在しています。");
         return;
     }
 
     function getVideo() {
-        return document.querySelector("video.html5-main-video");
+        const v = document.querySelector("video.html5-main-video");
+        console.log("[YTJ] video: ", v);
+        return v;
     }
 
     function parseToSecond(text) {
+        console.log("[YTJ] parseToSecond 入力: ", text)
+
         text = text.trim();
         if (!text) {
             return null;
         }
 
         const parts = text.split(":");
+        console.log("[YTJ] parts: ", parts);
+
         if (parts.length === 1) {
             const sec = Number(parts[0]);
 
